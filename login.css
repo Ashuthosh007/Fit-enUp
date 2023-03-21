@@ -1,0 +1,52 @@
+form{
+  border: 3px solid #f1f1f1;
+  width: 380px;
+  position: relative;
+  left: 180px;
+  top: 80px
+}
+body {
+  margin: 20px;
+  background-image: url("workout.png");
+}
+h1 {
+  text-align: center;
+  
+}
+input[type=text], input[type=password]{
+  font-family: 'narrow bold', sans-serif;
+  width: 175px;
+  height: 30px;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 10px 20px
+}
+button{
+  margin:8px 0;
+  padding: 9px 20px;
+  color: white;
+  background-color: purple;
+  border: none;
+  border-radius: 5px;
+   
+}
+button:hover{
+  background-color: darkblue;
+  color: red;
+  opacity:0.8;
+  
+}
+.cancel_bln{
+  width: auto;
+  padding: 5px 24px;
+  background-color: #FF5733;
+}
+a{
+  text-decoration: none;
+  color: red;
+}
+.container{
+  padding: 55px;
+}
+
+
