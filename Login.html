@@ -18,12 +18,16 @@
   </h1>
   <form>
    <div class="container">
+     <div class="input-box">
      <label class="uname">Username:</label>
-     <input type="text"placeholder="Enter Username" name="uname">
-       <br><br>
+     <input type="text"placeholder="Enter Username" class="uname">
+     </div>
+       <br>
+     <div class="input-box">
      <label class="passw">Password:</label>
      <input type="password" id="passw" placeholder="Enter Password" oninput="check()"> 
      <i id="see" onclick="see()" class="far fa-eye"></i>
+     </div>
        <br>
        <div id="set" >
         <div id="count">Length : 0</div>
@@ -43,10 +47,14 @@
            <div id="check4">
                 <i class="far fa-check-circle"></i>  <span>Shouldn't contain spaces.</span>
            </div>
+     <div class="Submit">
      <button type="submit">Submit</button>
+     </div>
+     <div class="remember-forget">
        <label>
        <input type="checkbox" checked="checked" name="remember">Remember Me
          </label>
+     </div>
 		<div class="submit_btn">
           <button type="button" class="cancel_bln">Cancel</button>
           <span class="pwd">Forgot<a href="#"> Me? </a></span>
