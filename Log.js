@@ -46,9 +46,9 @@ function check(){
     }
 
     if(input.match(' ')){
-        document.getElementById("check4").style.color = "green";
-    }else{
         document.getElementById("check4").style.color = "red";
+    }else{
+        document.getElementById("check4").style.color = "green";
     }
 
 }
