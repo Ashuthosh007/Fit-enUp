@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="reg.css">
+</head>
+
+<body>
+    <h1>The Registeration Section</h1>
+    <div class="homepg-menu">
+        <ul>
+            <li><a href="HomePg.html">Home</a></li>
+            <li><a href="Exercises.html">Exercises</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="Chest.html">Chest</a></li>
+                        <li><a href="#">Abs</a></li>
+                        <li><a href="#">Shoulder</a></li>
+                        <li><a href="#">Triceps</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="active"><a href="Register.html">Register</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </div>
+    <form>
+        <div class="container">
+            <p>Enter Body Type</p>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="Bdy_Typ-Ecto.png" alt="EctoMorphs">
+		  </label>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="Bdy_Typ-Endo.png" alt="EndoMorphs">
+		  </label>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="Bdy_Typ-Meso.png" alt="MesoMorphs">
+		  </label>
+            <br>
+            <label>Firstname:</label>
+            <input type="text" name="f_name" placeholder="Firstname" size="15">
+            <label>Lastname:</label>
+            <input type="text" name="l_name" placeholder="Lastname" size="15">
+            <div>
+                <label>   
+				Gender :  
+			</label><br>
+                <input type="radio" value="Male" name="gender" checked> Male
+                <input type="radio" value="Female" name="gender"> Female
+                <input type="radio" value="Other" name="gender"> Other
+            </div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Type Password" name="psw" required>
+            <label for="psw-repeat"><b>Re-type Password</b></label>
+            <input type="password" placeholder="Retype Password" name="psw-repeat" required>
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+    </form>
+    <!--<form>
+      <div>
+        
+      </div>
+    </form>
+-->
+</body>
+<html>
