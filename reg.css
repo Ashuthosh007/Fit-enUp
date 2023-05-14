@@ -1,6 +1,9 @@
 body {
+    background-image: url(layered.png);
+    background-size: cover;
+    background-position: center;
     font-family: Calibri, Helvetica, sans-serif;
-    background-color: rgb(88, 14, 88);
+   /* background-color: rgb(88, 14, 88); */
 }
 h1{
     text-align:center;
@@ -8,7 +11,9 @@ h1{
 
 .container {
     padding: 50px;
-    background-color: rgb(234, 19, 173);
+    /* background-color: rgb(234, 19, 173); */
+    background-color: rgb(46, 37, 37);
+    color: white;
 }
 
 .homepg-menu {
