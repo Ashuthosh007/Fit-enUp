@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Aleo|Slabo+27px" rel="stylesheet">
     <link rel="stylesheet" href="login.css" />
     <title>LogPage</title>
-    <script src="Log.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="Log1.js"></script>
 </head>
 
 <body>
@@ -24,8 +25,8 @@
                 <div class="sub-menu-1">
                     <ul>
                         <li><a href="Chest.html">Chest</a></li>
-                        <li><a href="#">Abs</a></li>
-                        <li><a href="#">Shoulder</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
                         <li><a href="#">Triceps</a></li>
                     </ul>
                 </div>
@@ -34,53 +35,57 @@
             <li class="active"><a href="Login.html" class="active">Login</a></li>
         </ul>
     </div>
-    <form name="myForm" action="" onsubmit="return validateForm()" method="post">
-        <div class="container">
-            <div class="input-box">
-                <label class="uname">Username:</label>
-                <input type="text" placeholder="Enter Username" class="uname" name="username">
+    <div ng-controller="myController">
+        <form name="myForm" ng-submit="validateForm()" novalidate>
+            <div class="container">
+                <div class="input-box">
+                    <label class="uname">Username:</label>
+                    <input type="text" placeholder="Enter Username" class="uname" name="username" ng-model="user.username" required>
+                </div>
+                <br>
+                <div class="input-box">
+                    <label class="passw">Password:</label>
+                    <input type="password" id="passw" placeholder="Enter Password" name="password" ng-model="user.password" required>
+                    <i id="see" ng-click="see()" class="far fa-eye"></i>
+                </div>
+                <br>
+                <div id="set">
+                    <div id="count">Length : {{ user.password.length }}</div>
+                </div>
+                <div id="check0">
+                    <i class="far fa-check-circle"></i> <span ng-style="{'color': isLengthValid() ? 'green' : 'red'}"> 
+                        Length more than 5.</span>
+                </div>
+                <div id="check1">
+                    <i class="far fa-check-circle"></i> <span ng-style="{'color': isLengthLessValid() ? 'green' : 'red'}"> 
+                        Length less than 10.</span>
+                </div>
+                <div id="check2">
+                    <i class="far fa-check-circle"></i> <span ng-style="{'color':hasNumericalChar() ? 'green' : 'red'}"> 
+                        Contains numerical character.</span>
+                </div>
+                <div id="check3">
+                    <i class="far fa-check-circle"></i> <span ng-style="{'color': hasSpecialChar() ? 'green' : 'red'}">
+                    Contains special character.</span>
+                </div>
+                <div id="check4">
+                    <i class="far fa-check-circle"></i> <span ng-style="{'color': hasNoSpaces() ? 'green' : 'red'}">
+                    Shouldn't contain spaces.</span>
+                </div>
+                <div class="Submit">
+                    <button type="submit">Submit</button>
+                </div>
+                <div class="remember-forget">
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember">Remember Me
+                    </label>
+                </div>
+                <div class="submit_btn">
+                    <button type="button" class="cancel_bln">Cancel</button>
+                        <span class="pwd">Forgot<a href="#"> Me? </a></span>
+                </div>
             </div>
-            <br>
-            <div class="input-box">
-                <label class="passw">Password:</label>
-                <input type="password" id="passw" placeholder="Enter Password" oninput="check()" name="password">
-                <i id="see" onclick="see()" class="far fa-eye"></i>
-            </div>
-            <br>
-            <div id="set">
-                <div id="count">Length : 0</div>
-            </div>
-            <div id="check0">
-                <i class="far fa-check-circle"></i> <span> Length more than 5.</span>
-            </div>
-            <div id="check1">
-                <i class="far fa-check-circle"></i> <span> Length less than 10.</span>
-            </div>
-            <div id="check2">
-                <i class="far fa-check-circle"></i> <span> Contains numerical character.</span>
-            </div>
-            <div id="check3">
-                <i class="far fa-check-circle"></i> <span>Contains special character.</span>
-            </div>
-            <div id="check4">
-                <i class="far fa-check-circle"></i> <span>Shouldn't contain spaces.</span>
-            </div>
-            <div class="Submit">
-                <button type="submit">Submit</button>
-            </div>
-            <div class="remember-forget">
-                <label>
-       <input type="checkbox" checked="checked" name="remember">Remember Me
-         </label>
-            </div>
-            <div class="submit_btn">
-                <button type="button" class="cancel_bln">Cancel</button>
-                <span class="pwd">Forgot<a href="#"> Me? </a></span>
-            </div>
+        </form>
         </div>
-    </form>
-
-    <script src="script.js"></script>
-</body>
-
+    </body>
 </html>
