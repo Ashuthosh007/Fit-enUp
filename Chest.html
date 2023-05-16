@@ -14,9 +14,11 @@
         }
     </style>
     <link rel="stylesheet" href="Header.css">
+    <script src="./content/lib/angular.min.js"></script>
+
 </head>
 
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
     <h1> Chest Section</h1>
     <div class="homepg-menu">
         <ul>
@@ -38,26 +40,44 @@
     <br>
     <br>
     <h3>Exercises</h3>
-    <ul>
-        <li style="color:white;margin-left:40px;">Bench-Press</li>
-        <img src="Bench-Press.gif">
-        <br><br>
-        <li style="color:white;margin-left:40px;">Push-up</li>
-        <img src="push-up.gif">
-        <br><br>
-        <li style="color:white;margin-left:40px;">Dumbel-Press</li>
-        <img src="Dumbel Press.gif">
-        <br><br>
-        <li style="color:white;margin-left:40px;">Dumbbell-Fly</li>
-        <img src="Dumbell_Fly.gif">
-        <br><br>
-        <li style="color:white;margin-left:40px;">Machine Fly</li>
-        <img src="Machine Fly.gif">
-        <br><br>
-        <li style="color:white;margin-left:40px;">Parallel Pull-ups</li>
-        <img src="Parellel_PullUps.webp">
+    <select ng-model="selectedValue">
+        <option value="select">select type</option>
+        <option value="home">Home</option>
+        <option value="gym">Gym</option>
+    </select>
+    <!-- <div>{{selectedValue}}</div> -->
 
+    <ul ng-switch="selectedValue">
+        <ul ng-switch-when="home">
+            <li style="color:white;margin-left:40px;">Push-up</li>
+            <img src="push-up.gif">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Parallel Pull-ups</li>
+            <img src="Parellel_PullUps.webp">
+
+        </ul>
+        <ul ng-switch-when="gym">
+            <li style="color:white;margin-left:40px;">Bench-Press</li>
+            <img src="Bench-Press.gif">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Dumbel-Press</li>
+            <img src="Dumbel Press.gif">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Dumbbell-Fly</li>
+            <img src="Dumbell_Fly.gif">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Machine Fly</li>
+            <img src="Machine Fly.gif">
+            <br><br>
+        </ul>
     </ul>
+    <script>
+        const app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+
+        })
+    </script>
+    <!-- <script src="exFilt.js"></script> -->
 </body>
 
 </html>
