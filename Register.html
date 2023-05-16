@@ -2,9 +2,11 @@
 
 <head>
     <link rel="stylesheet" href="reg.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
 </head>
 
-<body>
+<body ng-app="myApp">
     <h1>The Registeration Section</h1>
     <div class="homepg-menu">
         <ul>
@@ -13,8 +15,8 @@
                 <div class="sub-menu-1">
                     <ul>
                         <li><a href="Chest.html">Chest</a></li>
-                        <li><a href="#">Abs</a></li>
-                        <li><a href="#">Shoulder</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
                         <li><a href="#">Triceps</a></li>
                     </ul>
                 </div>
@@ -55,6 +57,13 @@
             <input type="password" placeholder="Type Password" name="psw" required>
             <label for="psw-repeat"><b>Re-type Password</b></label>
             <input type="password" placeholder="Retype Password" name="psw-repeat" required>
+            <h4><input type="checkbox" ng-model="myCheck">Do you agree to our terms and conditions</h4>
+            <div class="terms" ng-hide="myCheck">
+                By signning up to our website, you agree to be bound by its terms and conditions.
+            </div>
+            <script>
+                var app = angular.module('myApp', ['ngAnimate']);
+            </script>
             <button type="submit" class="registerbtn">Register</button>
         </div>
     </form>
