@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./Assets/styles/reg.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="register">
+    <h1>The Registeration Section</h1>
+    <div class="homepg-menu">
+        <ul>
+            <li><a href="./HomePg.html">Home</a></li>
+            <li><a href="./Exercises.html">Exercises</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="Chest.html">Chest</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
+                        <li><a href="#">Triceps</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="active"><a href="Register.html">Register</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </div>
+    <form ng-submit="register()">
+        <div class="container">
+            <p>Enter Body Type</p>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="./Assets/images/Bdy_Typ-Ecto.png" alt="EctoMorphs">
+		  </label>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="./Assets/images/Bdy_Typ-Endo.png" alt="EndoMorphs">
+		  </label>
+            <label>
+			<input type="radio" name="bdy_typ" value="small" checked>
+			<img src="./Assets/images/Bdy_Typ-Meso.png" alt="MesoMorphs">
+		  </label>
+            <br>
+            <label>Firstname:</label>
+            <input type="text" name="f_name" placeholder="Firstname" ng-model="fname" size="15">
+            <label>Lastname:</label>
+            <input type="text" name="l_name" placeholder="Lastname" ng-model="lname" size="15">
+            <label>email:(username)</label>
+            <input type="email"  placeholder="Lastname" ng-model="email" size="15">
+
+            <div>
+                <label>   
+				Gender :  
+			</label><br>
+                <input type="radio" ng-model="gender" value="Male" name="gender"> Male
+                <input type="radio" ng-model="gender" value="Female" name="gender"> Female
+                <input type="radio" ng-model="gender" value="Other" name="gender"> Other
+            </div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Type Password" ng-model="pwd" name="psw" required>
+            <label for="psw-repeat"><b>Re-type Password</b></label>
+            <input type="password" placeholder="Retype Password" ng-model="cpwd" name="psw-repeat" required>
+            <h4><input type="checkbox" ng-model="myCheck">Do you agree to our terms and conditions</h4>
+            <div class="terms" ng-hide="myCheck">
+                By signning up to our website, you agree to be bound by its terms and conditions.
+            </div>
+            <button type="submit" class="registerbtn">Register</button>
+        </div>
+    </form>
+    <script src="./Assets/JS/register.js"></script>
+    <!--<form>
+      <div>
+        
+      </div>
+    </form>
+-->
+</body>
+<html>
