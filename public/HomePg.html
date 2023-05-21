@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <meta name="keywords" content="HTML, Meta Tags, Metadata">
+    <link rel="stylesheet" href="./Assets/styles/hP.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js">
+    </script>
+</head>
+
+<body ng-app = "myApp">
+    <!--<div id="hello">
+        <h1>Fit-enUp</h1>
+    </div> -->
+    <div id="logo">
+        <svg width="400" height="90">
+        <rect width="280" height="80" style="fill:rgb(63, 63, 211);stroke-width:8;stroke:rgb(0,0,0)" />
+        <text fill="#ffffff" font-size="45" font-family="Verdana" x="45" y="54">
+        Fit-enUp
+        </text> Sorry, your browser does not support inline SVG.
+        </svg>
+    </div>
+    <div class="homepg-menu">
+        <ul>
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="Exercises.html">Exercises</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="Chest.html">Chest</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
+                        <li><a href="#">Triceps</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="Register.html">Register</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </div>
+    <div ng-controller="myController">
+        <h1 style="text-align: center;">{{message}}</h1>
+        <input type="text" ng-model="name">
+        <button style="background-color: aqua;" ng-click="sayHello()">Name</button>
+    </div>
+    
+    <div class="Greetings">
+        <center>
+            <img src="./Assets/images/Rocky1.jpg" alt="Greeting_img" id="img1">
+        </center>
+        <P>It ain't about how hard you hit.</P><br>
+        <p>It's about how hard you can get hit and keep moving forward.</p><br>
+        <p>That's how winning is done!</P>
+    </div>
+    <br><br>
+    <div class="vid-file">
+        <center>
+            <video controls height="750px" width="1200px" muted loop autoplay>
+					<source src="./Assets/videos/Fitness Cinematic video.mp4" type="Video/mp4">
+				</video>
+        </center>
+    </div>
+    <div ng-controller="myControl">
+        <div ng-switch="layout">
+            <div ng-switch-when="list">
+                <ul>
+                    <li style="color: aquamarine;" ng-repeat="item in items">{{item}}</li>
+                </ul>
+            </div>
+            <div ng-switch-when="grid">
+                <div class="grid-container">
+                    <div class="grid-item" ng-repeat="item in items">{{item}}</div>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <p style="color: aquamarine;">Exercise_List.</p>
+            </div>
+        </div>
+        <button ng-click="setLayout('list')">Exercise-List</button>
+        <button ng-click="setLayout('grid')">Exercise-Grid</button>
+    </div>
+    <div>
+    <p style="color: aquamarine; text-align: center;">If you like to give feedback or write a review Click<a href="Feedbck.html">Here</a></p>
+    </div>
+
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', function($scope) {
+            $scope.message = 'Welcome to Fit-en Up';
+            $scope.name = '';
+            $scope.sayHello = function() {
+                if ($scope.name) {
+                    $scope.message = 'Hi, ' + $scope.name + '!';
+                }
+            };
+        });
+        myApp.controller('myControl', function($scope) {
+        //    $scope.message = 'Welcome to my app!';
+            $scope.layout = '';
+            $scope.items = ['Chest', 'Shoulder', 'Abs'];
+            $scope.setLayout = function(layout) {
+                $scope.layout = layout;
+            };
+        });
+
+    </script>
+</body>
+
+</html>

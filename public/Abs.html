@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <style type="text/css">
+        body {
+            background-image: url(layered.png);
+            background-size: cover;
+            background-position: center;
+            font-family: sans-serif;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="./Assets/styles/Header.css">
+    <script src="./content/lib/angular.min.js"></script>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl">
+    <h1> Chest Section</h1>
+    <div class="homepg-menu">
+        <ul>
+            <li><a href="HomePg.html">Home</a></li>
+            <li class="active"><a href="Exercises.html">Exercises</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="Chest.html">Chest</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
+                        <li><a href="#">Triceps</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="Register.html">Register</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <h3>Exercises</h3>
+    <select ng-model="selectedValue">
+        <option value="select">select type</option>
+        <option value="home">Home</option>
+        <option value="gym">Gym</option>
+    </select>
+    <!-- <div>{{selectedValue}}</div> -->
+
+    <ul ng-switch="selectedValue">
+        <ul ng-switch-when="home">
+            <li style="color:white;margin-left:40px;">Plank</li>
+            <img src="./Assets/images/Plank.gif">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Mountain-Climber</li>
+            <img src="./Assets/images/Hill Climber.gif">
+
+        </ul>
+        <ul ng-switch-when="gym">
+            <li style="color:white;margin-left:40px;">Vertical walk</li>
+            <img src="./Assets/images/Vertical_walk.webp">
+            <br><br>
+            <li style="color:white;margin-left:40px;">Cable Crunches</li>
+            <img src="./Assets/images/Cable_Crunches.gif">
+        </ul>
+    </ul>
+    <script>
+        const app = angular.module("myApp", []);
+        app.controller("myCtrl", function($scope) {
+
+        })
+    </script>
+    <!-- <script src="exFilt.js"></script> -->
+</body>
+
+</html>

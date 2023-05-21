@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="./Assets/styles/frm.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="videoController">
+    <h1>The Exercises Section</h1>
+    <div class="homepg-menu">
+        <ul>
+            <li><a href="HomePg.html">Home</a></li>
+            <li class="active"><a href="Exercises.html">Exercises</a>
+                <div class="sub-menu-1">
+                    <ul>
+                        <li><a href="Chest.html">Chest</a></li>
+                        <li><a href="Abs.html">Abs</a></li>
+                        <li><a href="Shoulder.html">Shoulder</a></li>
+                        <li><a href="#">Triceps</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="Register.html">Register</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <video ng-src="{{videoUrl}}" controls loop autoplay></video>
+  <br>
+  <button ng-click="skip(-20)">--20 secs</button>
+  <button ng-click="skip(20)">20++ secs</button>
+  <button ng-click="pauseVid()">Pause</button>
+  <button ng-click="playVid()">Play</button>
+  <button ng-click="restart()">Restart</button>
+
+    <img src="./Assets/images/musGrps.png" alt="Muscle Group" usemap="#Exer">
+
+    <map name="Exer">
+		<area shape="rect" coords="606,405,699,477" ,alt="Chest-R" href="Chest.html">
+		<area shape="rect" coords="582,408,481,482" ,alt="Chest-L" href="Chest.html">
+		<area shape="rect" coords="513,378,429,463" alt="Shoulder-L" href="Shoulder.html">
+		<area shape="rect" coords="674,373,760,451" alt="Shoulder-R" href="Shoulder.html">
+        <area shape="rect" coords="494,486,680,682" alt="Abs" href="Abs.html">
+	</map>
+    <nav class="menu">
+        <ul>
+            <li style="color: aquamarine;"><a href="#!/about">About</a></li>
+            <li style="color: aquamarine;"><a href="#!/contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div ng-view></div>
+    <script type="text/ng-template" id="about.html">
+        <h1 style="color: aquamarine;">About</h1>
+        <p style="color: aquamarine;">{{message}}</p>
+    </script>
+
+    <script type="text/ng-template" id="contact.html">
+        <h1 style="color: aquamarine;">Contact</h1>
+        <p style="color: aquamarine;">{{message}}</p>
+        <br>
+        <h3 style="color: aquamarine;">email: {{email}}</h3>
+    </script>
+
+    <script>
+        var myApp = angular.module('myApp', ['ngRoute']);
+        myApp.config(function($routeProvider) {
+            $routeProvider
+                .when('/about', {
+                    templateUrl: 'about.html',
+                    controller: 'aboutController'
+                })
+                .when('/contact', {
+                    templateUrl: 'contact.html',
+                    controller: 'contactController'
+                });
+        });
+        myApp.controller('aboutController', function($scope) {
+            $scope.message = 'This website is about personel healthcare and well being. Exercise is a crucial part in the life of person. Here you can get started with your journey in being healthy and fit';
+        });
+        myApp.controller('contactController', function($scope) {
+            $scope.message = 'Get in touch with us';
+            $scope.email = 'contact.fiten-up@gmail.com.com';
+        });
+
+        myApp.controller('videoController', function($scope) {
+      $scope.videoUrl = './Assets/videos/exercise_bene.mp4';
+      $scope.video = document.querySelector('video');
+
+      $scope.skip = function(time) {
+        $scope.video.currentTime += time;
+      };
+
+      $scope.pauseVid = function() {
+        $scope.video.pause();
+      };
+
+      $scope.playVid = function() {
+        $scope.video.play();
+      };
+
+      $scope.restart = function() {
+        $scope.video.currentTime = 0;
+        $scope.video.play();
+      };
+    });
+    
+
+    </script>
+</body>
+<html>
